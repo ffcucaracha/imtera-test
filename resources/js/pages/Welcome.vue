@@ -11,6 +11,7 @@ withDefaults(
     },
 );
 const buttonClasses = 'inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]'
+const containerClasses = 'flex flex-1 justify-center rounded-lg bg-white p-6 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]'
 </script>
 
 <template>
@@ -27,24 +28,24 @@ const buttonClasses = 'inline-block rounded-sm border border-[#19140035] px-5 py
                 class="flex w-full gap-1 max-w-[335px] flex-col-reverse overflow-hidden rounded-lg lg:max-w-4xl lg:flex-row">
                 <div 
                     v-if="$page.props.auth.user"
-                    :class="buttonClasses"
+                    :class="containerClasses"
                 >
                     <Link :href="reviews()"
-                        class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]">
+                        :class="buttonClasses">
                     Reviews
                     </Link>
 
                 </div>
                 <template v-else>
                     <div
-                        class="flex flex-1 justify-center rounded-lg bg-white p-6 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
+                        :class="containerClasses" >
                         <Link :href="login()"
                             :class="buttonClasses" >
                         Log in
                         </Link>
                     </div>
                     <div
-                        class="flex flex-1 justify-center rounded-lg bg-white p-6 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
+                        :class="containerClasses">
                         <Link v-if="canRegister" :href="register()"
                             :class="buttonClasses" >
                         Register

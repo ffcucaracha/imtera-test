@@ -75,7 +75,6 @@ class ReviewsController extends Controller
         // Используйте этот код на свой страх и риск и только в рамках закона/правил сайта.
         $reviewsCount = 10;
         $data = $this->parserService->parseReviews($url, $reviewsCount);
-        Log::error($data);
         
         if (isset($data['error'])) {
             Log::error($data['error']);
